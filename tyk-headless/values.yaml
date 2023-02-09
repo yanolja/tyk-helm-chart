@@ -96,6 +96,9 @@ postgres:
   database: tyk_analytics
   sslmode:
 
+initContainers:
+  image: busybox:1.32
+
 gateway:
   # The hostname to bind the Gateway to.
   hostName: tyk-gw.local
