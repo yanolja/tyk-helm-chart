@@ -5,5 +5,5 @@ publishComPipeline containers: [
                 name: 'helm'
             ]
         ], {
-    publishHelm script: 'cd charts/tyk/tyk-pro'
+    publishHelm script: 'cd tyk-pro'
 }
