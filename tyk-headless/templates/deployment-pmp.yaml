@@ -149,7 +149,7 @@ spec:
             value: "false"
           {{ end }}
           - name: TYK_PMP_ANALYTICSSTORAGECONFIG_DATABASE
-            value: "{{ default "0" .Values.redis.storage.database }}"
+            value: "{{ .Values.redis.storage.database }}"
           - name: TYK_PMP_ANALYTICSSTORAGECONFIG_PASSWORD
             valueFrom:
               secretKeyRef:
