@@ -1,9 +1,0 @@
-library identifier: 'yanolja-pipeline-library', changelog: false
- 
-publishComPipeline containers: [
-            [
-                name: 'helm'
-            ]
-        ], {
-    publishHelm script: 'cd tyk-pro'
-}
