@@ -1,0 +1,24 @@
+{{- if .Values.gateway.grpc.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-svc-{{ include "tyk-pro.fullname" . }}-grpc
+  annotations:
+    alb.ingress.kubernetes.io/backend-protocol-version: HTTP2
+  labels:
+    app: gateway-svc-{{ include "tyk-pro.fullname" . }}
+    release: {{ .Release.Name }}
+spec:
+  type: {{ .Values.gateway.service.type }}
+  ports:
+    - port: {{ .Values.gateway.service.port }}
+      targetPort: {{ .Values.gateway.containerPort }}
+      protocol: TCP
+      name: https
+  selector:
+    app: gateway-{{ include "tyk-pro.fullname" . }}
+    release: {{ .Release.Name }}
+  {{- if eq .Values.gateway.service.type "LoadBalancer" }}
+externalTrafficPolicy: {{ .Values.gateway.service.externalTrafficPolicy }}
+  {{- end }}
+{{- end}}
