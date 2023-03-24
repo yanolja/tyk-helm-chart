@@ -11,14 +11,14 @@ metadata:
 spec:
   type: {{ .Values.gateway.service.type }}
   ports:
-    - port: {{ .Values.gateway.service.port }}
-      targetPort: {{ .Values.gateway.containerPort }}
-      protocol: TCP
-      name: https
+  - port: {{ .Values.gateway.service.port }}
+    targetPort: {{ .Values.gateway.containerPort }}
+    protocol: TCP
+    name: https
   selector:
     app: gateway-{{ include "tyk-pro.fullname" . }}
     release: {{ .Release.Name }}
   {{- if eq .Values.gateway.service.type "LoadBalancer" }}
-externalTrafficPolicy: {{ .Values.gateway.service.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ .Values.gateway.service.externalTrafficPolicy }}
   {{- end }}
 {{- end}}
