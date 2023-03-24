@@ -184,7 +184,7 @@ spec:
         livenessProbe:
           httpGet:
             scheme: "HTTP{{ if .Values.dash.tls }}S{{ end }}"
-            path: /
+            path: {{ .Values.dash.livenessProbe.path }}
             port: {{ .Values.dash.containerPort }}
           initialDelaySeconds: 10
           periodSeconds: 2
@@ -193,7 +193,7 @@ spec:
         readinessProbe:
           httpGet:
             scheme: "HTTP{{ if .Values.dash.tls }}S{{ end }}"
-            path: /
+            path: {{ .Values.dash.readinessProbe.path }}
             port: {{ .Values.dash.containerPort }}
           initialDelaySeconds: 10
           periodSeconds: 10
