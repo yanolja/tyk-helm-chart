@@ -1,4 +1,4 @@
-{{- if .Values.gateway.grpc.enabled }}
+{{- if .Values.gateway.grpc.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
