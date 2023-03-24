@@ -59,6 +59,15 @@ spec:
               serviceName: gateway-svc-{{ $fullName }}
               servicePort: {{ $svcPort }}
               {{- end }}
+          {{- if .Values.gateway.grpc.enabled }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: gateway-svc-{{ $fullName }}-grpc
+                port:
+                  number: 443
+          {{- end}}
           {{- end }}
     {{- end }}
 {{- end }}
