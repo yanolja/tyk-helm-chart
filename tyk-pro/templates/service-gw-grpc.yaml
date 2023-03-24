@@ -1,4 +1,3 @@
-{{- if .Values.gateway.grpc.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -21,4 +20,3 @@ spec:
   {{- if eq .Values.gateway.service.type "LoadBalancer" }}
   externalTrafficPolicy: {{ .Values.gateway.service.externalTrafficPolicy }}
   {{- end }}
-{{- end}}

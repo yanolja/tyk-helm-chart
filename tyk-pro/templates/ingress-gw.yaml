@@ -59,7 +59,6 @@ spec:
               serviceName: gateway-svc-{{ $fullName }}
               servicePort: {{ $svcPort }}
               {{- end }}
-          {{- if .Values.gateway.grpc.enabled }}
           - path: {{ .path }}
             pathType: {{ .pathType }}
             backend:
@@ -67,7 +66,6 @@ spec:
                 name: gateway-svc-{{ $fullName }}-grpc
                 port:
                   number: {{ $svcPort }}
-          {{- end }}
           {{- end }}
     {{- end }}
 {{- end }}
