@@ -20,7 +20,7 @@ spec:
   - port: {{ .Values.gateway.service.port }}
     targetPort: {{ .Values.gateway.containerPort }}
     protocol: TCP
-    name: https
+    name: http
   selector:
     app: gateway-{{ include "tyk-pro.fullname" . }}
     release: {{ .Release.Name }}
