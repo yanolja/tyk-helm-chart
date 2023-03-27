@@ -22,7 +22,7 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: gateway-{{ include "tyk-pro.fullname" . }}-grpc
+    app: gateway-{{ include "tyk-pro.fullname" . }}
     release: {{ .Release.Name }}
 {{- if eq .Values.gateway.service.type "LoadBalancer" }}
   externalTrafficPolicy: {{ .Values.gateway.service.externalTrafficPolicy }}
