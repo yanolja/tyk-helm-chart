@@ -54,10 +54,10 @@ spec:
               service:
                 name: gateway-svc-{{ $fullName }}-grpc
                 port:
-                  number: 445
+                  number: {{ $svcPort }}
               {{- else }}
               serviceName: gateway-svc-{{ $fullName }}-grpc
-              servicePort: 445
+              servicePort: {{ $svcPort }}
               {{- end }}
           {{- end }}
     {{- end }}
