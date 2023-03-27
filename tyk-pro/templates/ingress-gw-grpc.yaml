@@ -59,13 +59,6 @@ spec:
               serviceName: gateway-svc-{{ $fullName }}-grpc
               servicePort: 445
               {{- end }}
-          - path: {{ .path }}
-            pathType: {{ .pathType }}
-            backend:
-              service:
-                name: gateway-svc-{{ $fullName }}-grpc
-                port:
-                  number: 445
           {{- end }}
     {{- end }}
 {{- end }}
