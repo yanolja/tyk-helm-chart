@@ -511,3 +511,9 @@ pump:
   mounts: []
 
 rbac: true
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUPercentage: 50
