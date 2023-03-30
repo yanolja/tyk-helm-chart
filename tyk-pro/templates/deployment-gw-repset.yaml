@@ -9,7 +9,7 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-{{- if eq .Values.gateway.kind "Deployment" }}
+{{- if and (eq .Values.gateway.kind "Deployment") (eq .Values.hpa.enabled "false") }}
   replicas: {{ .Values.gateway.replicaCount }}
 {{- end }}
   minReadySeconds: 10
