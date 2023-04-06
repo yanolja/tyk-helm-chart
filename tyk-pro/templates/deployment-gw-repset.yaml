@@ -8,6 +8,7 @@ metadata:
     chart: {{ include "tyk-pro.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    type: gateway
 spec:
 {{- if eq .Values.gateway.kind "Deployment" }}
   replicas: {{ .Values.gateway.replicaCount }}
